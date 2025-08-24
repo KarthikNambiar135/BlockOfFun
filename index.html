@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Library - Funky Arcade</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🎮 BlockOfFun 🎮</h1>
+            <p class="subtitle">Classic Games Collection</p>
+        </header>
+
+        <nav class="game-nav">
+            <button class="nav-btn active" data-game="menu">🏠 Home</button>
+            <button class="nav-btn" data-game="tictactoe">⭕ Tic Tac Toe</button>
+            <button class="nav-btn" data-game="snake">🐍 Snake</button>
+            <button class="nav-btn" data-game="pingpong">🏓 Ping Pong</button>
+            <button class="nav-btn" data-game="crosstheroad">🚶 Cross the Road</button>
+            <button class="nav-btn" data-game="flappybird">🐦 Flappy Bird</button>
+            <button class="nav-btn" data-game="hangman">🎯 Hangman</button>
+        </nav>
+
+        <main class="game-container">
+            <!-- Home Menu -->
+            <div id="menu" class="game-section active">
+                <div class="welcome-screen">
+                    <h2>Welcome to Funky Arcade!</h2>
+                    <p>Choose a game from the navigation above to start playing</p>
+                    <div class="game-grid">
+                        <div class="game-card" data-game="tictactoe">
+                            <h3>⭕ Tic Tac Toe</h3>
+                            <p>Classic 3x3 strategy game</p>
+                        </div>
+                        <div class="game-card" data-game="snake">
+                            <h3>🐍 Snake</h3>
+                            <p>Grow your snake, avoid walls</p>
+                        </div>
+                        <div class="game-card" data-game="pingpong">
+                            <h3>🏓 Ping Pong</h3>
+                            <p>Two-player paddle battle</p>
+                        </div>
+                        <div class="game-card" data-game="crosstheroad">
+                            <h3>🚶 Cross the Road</h3>
+                            <p>Navigate through traffic</p>
+                        </div>
+                        <div class="game-card" data-game="flappybird">
+                            <h3>🐦 Flappy Bird</h3>
+                            <p>Flap through obstacles</p>
+                        </div>
+                        <div class="game-card" data-game="hangman">
+                            <h3>🎯 Hangman</h3>
+                            <p>Guess the word before hanging</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tic Tac Toe -->
+            <div id="tictactoe" class="game-section">
+                <div class="game-header">
+                    <h2>⭕ Tic Tac Toe</h2>
+                    <div class="score-board">
+                        <span>Player X: <span id="score-x">0</span></span>
+                        <span>Player O: <span id="score-o">0</span></span>
+                    </div>
+                </div>
+                <div class="game-board">
+                    <div class="board" id="tictactoe-board">
+                        <div class="cell" data-index="0"></div>
+                        <div class="cell" data-index="1"></div>
+                        <div class="cell" data-index="2"></div>
+                        <div class="cell" data-index="3"></div>
+                        <div class="cell" data-index="4"></div>
+                        <div class="cell" data-index="5"></div>
+                        <div class="cell" data-index="6"></div>
+                        <div class="cell" data-index="7"></div>
+                        <div class="cell" data-index="8"></div>
+                    </div>
+                    <div class="game-info">
+                        <p id="tictactoe-status">Player X's turn</p>
+                        <button id="tictactoe-reset" class="reset-btn">New Game</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Snake -->
+            <div id="snake" class="game-section">
+                <div class="game-header">
+                    <h2>🐍 Snake</h2>
+                    <div class="score-board">
+                        <span>Score: <span id="snake-score">0</span></span>
+                        <span>High Score: <span id="snake-highscore">0</span></span>
+                    </div>
+                </div>
+                <div class="game-board">
+                    <canvas id="snake-canvas" width="400" height="400"></canvas>
+                    <div class="game-info">
+                        <p>Use arrow keys to control the snake</p>
+                        <button id="snake-start" class="start-btn">Start Game</button>
+                        <button id="snake-reset" class="reset-btn">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ping Pong -->
+            <div id="pingpong" class="game-section">
+                <div class="game-header">
+                    <h2>🏓 Ping Pong</h2>
+                    <div class="score-board">
+                        <span>Player 1: <span id="p1-score">0</span></span>
+                        <span>Player 2: <span id="p2-score">0</span></span>
+                    </div>
+                </div>
+                <div class="game-board">
+                    <canvas id="pingpong-canvas" width="600" height="400"></canvas>
+                    <div class="game-info">
+                        <p>Player 1: W/S keys | Player 2: Up/Down arrows</p>
+                        <button id="pingpong-start" class="start-btn">Start Game</button>
+                        <button id="pingpong-reset" class="reset-btn">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cross the Road -->
+            <div id="crosstheroad" class="game-section">
+                <div class="game-header">
+                    <h2>🚶 Cross the Road</h2>
+                    <div class="score-board">
+                        <span>Score: <span id="road-score">0</span></span>
+                        <span>High Score: <span id="road-highscore">0</span></span>
+                    </div>
+                </div>
+                <div class="game-board">
+                    <canvas id="road-canvas" width="400" height="600"></canvas>
+                    <div class="game-info">
+                        <p>Use arrow keys to move the player</p>
+                        <button id="road-start" class="start-btn">Start Game</button>
+                        <button id="road-reset" class="reset-btn">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flappy Bird -->
+            <div id="flappybird" class="game-section">
+                <div class="game-header">
+                    <h2>🐦 Flappy Bird</h2>
+                    <div class="score-board">
+                        <span>Score: <span id="flappy-score">0</span></span>
+                        <span>High Score: <span id="flappy-highscore">0</span></span>
+                    </div>
+                </div>
+                <div class="game-board">
+                    <canvas id="flappy-canvas" width="400" height="600"></canvas>
+                    <div class="game-info">
+                        <p>Click or press space to flap</p>
+                        <button id="flappy-start" class="start-btn">Start Game</button>
+                        <button id="flappy-reset" class="reset-btn">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hangman -->
+            <div id="hangman" class="game-section">
+                <div class="game-header">
+                    <h2>🎯 Hangman</h2>
+                    <div class="score-board">
+                        <span>Wins: <span id="hangman-wins">0</span></span>
+                        <span>Losses: <span id="hangman-losses">0</span></span>
+                    </div>
+                </div>
+                <div class="game-board">
+                    <div class="hangman-display">
+                        <canvas id="hangman-canvas" width="300" height="300"></canvas>
+                        <div class="word-display" id="hangman-word"></div>
+                    </div>
+                    <div class="keyboard" id="hangman-keyboard"></div>
+                    <div class="game-info">
+                        <p id="hangman-status">Guess the word!</p>
+                        <button id="hangman-new" class="start-btn">New Word</button>
+                        <button id="hangman-reset" class="reset-btn">Reset Score</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 C. <a href="https://github.com/KarthikNambiar135" target="_blank">KarthikNambiar135</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,461 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+    background: linear-gradient(45deg, #000, #111);
+    padding: 2rem 1rem;
+    text-align: center;
+    border-bottom: 3px solid #ffd700;
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 0 0 20px #ffd700;
+    animation: glow 2s ease-in-out infinite alternate;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 20px #ffd700; }
+    to { text-shadow: 0 0 30px #ffd700, 0 0 40px #ffd700; }
+}
+
+/* Navigation Styles */
+.game-nav {
+    background: #111;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    border-bottom: 2px solid #333;
+}
+
+.nav-btn {
+    background: #000;
+    color: #fff;
+    border: 2px solid #ffd700;
+    padding: 0.8rem 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.nav-btn:hover {
+    background: #ffd700;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+}
+
+.nav-btn.active {
+    background: #ffd700;
+    color: #000;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+/* Game Container */
+.game-container {
+    flex: 1;
+    padding: 2rem;
+    background: #000;
+}
+
+.game-section {
+    display: none;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.game-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Welcome Screen */
+.welcome-screen {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.welcome-screen h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ffd700;
+}
+
+.welcome-screen p {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: #ccc;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.game-card {
+    background: #111;
+    border: 2px solid #333;
+    padding: 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.game-card:hover {
+    border-color: #ffd700;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+}
+
+.game-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #ffd700;
+}
+
+.game-card p {
+    color: #ccc;
+}
+
+/* Game Header */
+.game-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.game-header h2 {
+    font-size: 2.5rem;
+    color: #ffd700;
+    margin-bottom: 1rem;
+}
+
+.score-board {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.score-board span {
+    background: #111;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid #333;
+}
+
+/* Game Board */
+.game-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Tic Tac Toe Styles */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    background: #ffd700;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 300px;
+}
+
+.cell {
+    width: 80px;
+    height: 80px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+.cell:hover {
+    background: #111;
+    transform: scale(1.05);
+}
+
+.cell.x {
+    color: #ffd700;
+}
+
+.cell.o {
+    color: #fff;
+}
+
+/* Canvas Styles */
+canvas {
+    border: 3px solid #ffd700;
+    border-radius: 10px;
+    background: #000;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Game Info */
+.game-info {
+    text-align: center;
+    background: #111;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #333;
+    min-width: 300px;
+}
+
+.game-info p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #ccc;
+}
+
+/* Button Styles */
+.start-btn, .reset-btn {
+    background: #000;
+    color: #fff;
+    border: 2px solid #ffd700;
+    padding: 0.8rem 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    margin: 0 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.start-btn:hover, .reset-btn:hover {
+    background: #ffd700;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+}
+
+/* Hangman Specific Styles */
+.hangman-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.word-display {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.5rem;
+    color: #ffd700;
+    text-align: center;
+    min-height: 3rem;
+}
+
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.keyboard button {
+    background: #111;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 0.8rem;
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.keyboard button:hover {
+    background: #ffd700;
+    color: #000;
+    transform: scale(1.1);
+}
+
+.keyboard button.used {
+    background: #333;
+    color: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.keyboard button.correct {
+    background: #ffd700;
+    color: #000;
+}
+
+.keyboard button.wrong {
+    background: #ff4444;
+    color: #fff;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(45deg, #000, #111);
+    padding: 1rem;
+    text-align: center;
+    border-top: 2px solid #ffd700;
+    color: #ccc;
+}
+
+.footer a {
+    color: #ffd700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #ffd700;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .game-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-btn {
+        width: 200px;
+    }
+    
+    .game-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .score-board {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .board {
+        max-width: 250px;
+    }
+    
+    .cell {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+    
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .keyboard {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+    .keyboard button {
+        padding: 0.6rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-container {
+        padding: 1rem;
+    }
+    
+    .title {
+        font-size: 1.5rem;
+    }
+    
+    .game-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .board {
+        max-width: 200px;
+    }
+    
+    .cell {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .keyboard {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Loading animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #333;
+    border-radius: 50%;
+    border-top-color: #ffd700;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
